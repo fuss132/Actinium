@@ -172,6 +172,8 @@ Low-level RPC changes
 - #11456 `6f27965` Replace relevant services logic with a function suite (TheBlueMatt)
 - #11490 `bf191a7` Disconnect from outbound peers with bad headers chains (sdaftuar)
 
+The p2p alert system has been removed in #7692 and the 'alert' message is no longer supported.
+
 ### Validation
 - #10357 `da4908c` Allow setting nMinimumChainWork on command line (sdaftuar)
 - #11458 `2df65ee` Don't process unrequested, low-work blocks (sdaftuar)
