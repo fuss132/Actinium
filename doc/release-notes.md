@@ -200,6 +200,16 @@ There is no distinction between internal (change) and external keys.
 
 [Pull request](https://github.com/bitcoin/bitcoin/pull/8035/files), [BIP 32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)
 
+0.14.0 Fundrawtransaction change address reuse
+==============================================
+
+Before 0.14, `fundrawtransaction` was by default wallet stateless. In almost all cases `fundrawtransaction` does add a change-output to the outputs of the funded transaction. Before 0.14, the used keypool key was never marked as change-address key and directly returned to the keypool (leading to address reuse).
+Before 0.14, calling `getnewaddress` directly after `fundrawtransaction` did generate the same address as the change-output address.
+
+Since 0.14, fundrawtransaction does reserve the change-output-key from the keypool by default (optional by setting  `reserveChangeKey`, default = `true`)
+
+Users should also consider using `getrawchangeaddress()` in conjunction with `fundrawtransaction`'s `changeAddress` option.
+
 ### GUI
 - #11334 `19d63e8` Remove custom fee radio group and remove nCustomFeeRadio setting (achow101)
 - #11198 `7310f1f` Fix display of package name on 'open config file' tooltip (esotericnonsense)
