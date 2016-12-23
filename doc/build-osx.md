@@ -26,6 +26,10 @@ If you want to build with ZeroMQ support
     
     brew install zeromq
 
+In case you want to build the disk image with `make deploy` (.dmg / optional), you need RSVG
+
+    brew install librsvg
+
 NOTE: Building with Qt4 is still supported, however, could result in a broken UI. Building with Qt5 is recommended.
 
 Build Actinium Core
