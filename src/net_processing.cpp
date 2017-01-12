@@ -1053,6 +1053,11 @@ void static ProcessGetData(CNode* pfrom, const Consensus::Params& consensusParam
                         // before ActivateBestChain but after AcceptBlock).
                         // In this case, we need to run ActivateBestChain prior to checking the relay
                         // conditions below.
+                        std::shared_ptr<const CBlock> a_recent_block;
+                        {
+                            LOCK(cs_most_recent_block);
+                            a_recent_block = most_recent_block;
+                        }
                         CValidationState dummy;
                         ActivateBestChain(dummy, Params(), a_recent_block);
                     }
