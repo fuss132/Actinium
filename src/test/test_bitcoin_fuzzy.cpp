@@ -61,6 +61,7 @@ bool read_stdin(std::vector<char> &data) {
 
 int do_fuzz()
 {
+    ECCVerifyHandle globalVerifyHandle;
     std::vector<char> buffer;
     if (!read_stdin(buffer)) return 0;
 
