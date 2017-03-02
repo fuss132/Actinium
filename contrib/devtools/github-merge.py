@@ -294,6 +294,11 @@ def main():
             print("ERROR: Tree hash changed unexpectedly",file=stderr)
             exit(8)
 
+        second_sha512 = tree_sha512sum()
+        if first_sha512 != second_sha512:
+            print("ERROR: Tree hash changed unexpectedly",file=stderr)
+            exit(8)
+
         # Sign the merge commit.
         print_merge_details(pull, title, branch, base_branch, head_branch)
         while True:
