@@ -125,7 +125,6 @@ SendCoinsDialog::SendCoinsDialog(const PlatformStyle *_platformStyle, QWidget *p
     ui->groupFee->button((int)std::max(0, std::min(1, settings.value("nFeeRadio").toInt())))->setChecked(true);
     ui->customFee->setValue(settings.value("nTransactionFee").toLongLong());
     ui->checkBoxMinimumFee->setChecked(settings.value("fPayOnlyMinFee").toBool());
-    ui->optInRBF->setCheckState(model->getDefaultWalletRbf() ? Qt::Checked : Qt::Unchecked);
     minimizeFeeSection(settings.value("fFeeSectionMinimized").toBool());
 }
 
@@ -188,6 +187,9 @@ void SendCoinsDialog::setModel(WalletModel *_model)
         // set default rbf checkbox state
         // Actinium: Disabled RBF UI
         //ui->optInRBF->setCheckState(model->getDefaultWalletRbf() ? Qt::Checked : Qt::Unchecked);
+
+        // set default rbf checkbox state
+        ui->optInRBF->setCheckState(model->getDefaultWalletRbf() ? Qt::Checked : Qt::Unchecked);
 
         // set the smartfee-sliders default value (wallets default conf.target or last stored value)
         QSettings settings;
