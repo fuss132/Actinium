@@ -2013,6 +2013,16 @@ static void DoWarning(const std::string& strWarning)
     }
 }
 
+static void DoWarning(const std::string& strWarning)
+{
+    static bool fWarned = false;
+    SetMiscWarning(strWarning);
+    if (!fWarned) {
+        AlertNotify(strWarning);
+        fWarned = true;
+    }
+}
+
 /** Update chainActive and related internal data structures. */
 void static UpdateTip(CBlockIndex *pindexNew, const CChainParams& chainParams) {
     chainActive.SetTip(pindexNew);
