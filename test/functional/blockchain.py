@@ -52,6 +52,14 @@ class BlockchainTest(BitcoinTestFramework):
         # we have to round because of binary math
         assert_equal(round(chaintxstats['txrate'] * 600, 10), Decimal(1))
 
+    def _test_getchaintxstats(self):
+        chaintxstats = self.nodes[0].getchaintxstats(1)
+        # 200 txs plus genesis tx
+        assert_equal(chaintxstats['txcount'], 201)
+        # tx rate should be 1 per 10 minutes, or 1/600
+        # we have to round because of binary math
+        assert_equal(round(chaintxstats['txrate'] * 600, 10), Decimal(1))
+
     def _test_gettxoutsetinfo(self):
         node = self.nodes[0]
         res = node.gettxoutsetinfo()
