@@ -4460,7 +4460,7 @@ bool LoadMempool(void)
     return true;
 }
 
-void DumpMempool(void)
+bool DumpMempool(void)
 {
     int64_t start = GetTimeMicros();
 
@@ -4480,7 +4480,7 @@ void DumpMempool(void)
     try {
         FILE* filestr = fsbridge::fopen(GetDataDir() / "mempool.dat.new", "wb");
         if (!filestr) {
-            return;
+            return false;
         }
 
         CAutoFile file(filestr, SER_DISK, CLIENT_VERSION);
@@ -4504,7 +4504,9 @@ void DumpMempool(void)
         LogPrintf("Dumped mempool: %gs to copy, %gs to dump\n", (mid-start)*MICRO, (last-mid)*MICRO);
     } catch (const std::exception& e) {
         LogPrintf("Failed to dump mempool: %s. Continuing anyway.\n", e.what());
+        return false;
     }
+    return true;
 }
 
 //! Guess how far we are in the verification process at the given block index
