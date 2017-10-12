@@ -442,6 +442,9 @@ CDB::CDB(CWalletDBWrapper& dbw, const char* pszMode, bool fFlushOnCloseIn) : pdb
             pdb = pdb_temp.release();
             env->mapDb[strFilename] = pdb;
 
+            pdb = pdb_temp.release();
+            env->mapDb[strFilename] = pdb;
+
             if (fCreate && !Exists(std::string("version"))) {
                 bool fTmp = fReadOnly;
                 fReadOnly = false;
