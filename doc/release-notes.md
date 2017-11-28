@@ -283,6 +283,9 @@ Users should also consider using `getrawchangeaddress()` in conjunction with `fu
 - #10957 `50bd3f6` Avoid returning a BIP9Stats object with uninitialized values (practicalswift)
 - #11539 `01223a0` [verify-commits] Allow revoked keys to expire (TheBlueMatt)
 
+Changed command-line options
+-----------------------------
+- `-debuglogfile=<file>` can be used to specify an alternative debug logging file.
 
 Credits
 =======
