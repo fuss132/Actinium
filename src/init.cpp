@@ -1761,5 +1761,5 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
     }
 #endif
 
-    return !fRequestShutdown;
+    return true;
 }
