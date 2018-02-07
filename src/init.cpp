@@ -1693,7 +1693,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
     LogPrintf("nBestHeight = %d\n", chain_active_height);
 
     if (gArgs.GetBoolArg("-listenonion", DEFAULT_LISTEN_ONION))
-        StartTorControl(threadGroup, scheduler);
+        StartTorControl();
 
     Discover(threadGroup);
 
