@@ -1542,7 +1542,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
                 if (!is_coinsview_empty) {
                     uiInterface.InitMessage(_("Verifying blocks..."));
                     if (fHavePruned && gArgs.GetArg("-checkblocks", DEFAULT_CHECKBLOCKS) > MIN_BLOCKS_TO_KEEP) {
-                        LogPrintf("Prune: pruned datadir may not have more than %d blocks; only checking available blocks",
+                        LogPrintf("Prune: pruned datadir may not have more than %d blocks; only checking available blocks\n",
                             MIN_BLOCKS_TO_KEEP);
                     }
 
