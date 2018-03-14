@@ -46,6 +46,11 @@ void CallFunctionInValidationInterfaceQueue(std::function<void ()> func);
 class CValidationInterface {
 protected:
     /**
+     * Protected destructor so that instances can only be deleted by derived classes.
+     * If that restriction is no longer desired, this should be made public and virtual.
+     */
+    ~CValidationInterface() = default;
+    /**
      * Notifies listeners of updated block chain tip
      *
      * Called on a background thread.
