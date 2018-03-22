@@ -293,6 +293,14 @@ The `share/rpcuser/rpcuser.py` script was renamed to `share/rpcauth/rpcauth.py`.
 used to create `rpcauth` credentials for a JSON-RPC user.
 
 
+Miner block size removed
+------------------------
+
+The `-blockmaxsize` option for miners to limit their blocks' sizes was
+deprecated in V0.15.1, and has now been removed. Miners should use the
+`-blockmaxweight` option if they want to limit the weight of their blocks'
+weights.
+
 Credits
 =======
 

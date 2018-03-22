@@ -34,7 +34,7 @@ class MaxUploadTest(BitcoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1
-        self.extra_args = [["-maxuploadtarget=800", "-blockmaxsize=999000"]]
+        self.extra_args = [["-maxuploadtarget=800"]]
 
         # Cache for utxos, as the listunspent may take a long time later in the test
         self.utxo_cache = []
@@ -146,7 +146,7 @@ class MaxUploadTest(BitcoinTestFramework):
         #stop and start node 0 with 1MB maxuploadtarget, whitelist 127.0.0.1
         self.log.info("Restarting nodes with -whitelist=127.0.0.1")
         self.stop_node(0)
-        self.start_node(0, ["-whitelist=127.0.0.1", "-maxuploadtarget=1", "-blockmaxsize=999000"])
+        self.start_node(0, ["-whitelist=127.0.0.1", "-maxuploadtarget=1"])
 
         #recreate/reconnect a test node
         test_nodes = [TestNode()]
