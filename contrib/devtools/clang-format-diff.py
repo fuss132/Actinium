@@ -70,7 +70,6 @@ Example usage for git/svn users:
 import argparse
 import difflib
 import re
-import string
 import subprocess
 import StringIO
 import sys
