@@ -149,7 +149,7 @@ private:
     QMenu *peersTableContextMenu;
     QMenu *banTableContextMenu;
     int consoleFontSize;
-    QCompleter *autoCompleter;
+    QCompleter *autoCompleter = nullptr;
     QThread thread;
 
     /** Update UI with latest network info from model. */
